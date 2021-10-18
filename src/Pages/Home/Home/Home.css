@@ -1,0 +1,10 @@
+.title h1{
+    font-size: 3.3rem;
+    color: #5607b7;
+}
+
+.signup-btn{
+    background-color: #5607b7;
+    color: white;
+    padding: 10px 30px;
+}

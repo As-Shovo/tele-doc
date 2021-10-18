@@ -1,0 +1,20 @@
+[
+    {
+       "id":1,
+       "name":"hillary clinton",
+       "decription":"Mental Health Specialist",
+       "image": "https://i.ibb.co/dQGFSYQ/dcotor2.jpg"
+    },
+    {
+       "id":2,
+       "name":"Ariana Grande",
+       "decription":"Diabetes Specialist",
+       "image":"https://i.ibb.co/xXy5XyN/doctor1.jpg"
+    },
+    {
+       "id":3,
+       "name":"Billie Eilish",
+       "decription":"Skin Health Specialist",
+       "image":"https://i.ibb.co/PGVTM1S/doctor3.jpg"
+    }
+ ]

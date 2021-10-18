@@ -3,7 +3,7 @@ import React from 'react';
 const Customar = () => {
     return (
         <div>
-            <h2>Our Customer Opinion </h2>
+            <h1 style={{textAlign:"center"}}>Our Customer Opinion </h1>
         </div>
     );
 };

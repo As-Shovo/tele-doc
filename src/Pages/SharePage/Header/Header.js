@@ -3,12 +3,13 @@ import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Header.css';
 
+import logo from '../../../images/banner/logo.png';
 const Header = () => {
     return (
         <div>
             <Navbar expand="lg">
                 <Container>
-                    <Navbar.Brand href="#">Tele Doc</Navbar.Brand>
+                    <Navbar.Brand href="#"><img src={logo} alt="" /></Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                         <Nav
