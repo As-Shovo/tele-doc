@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, GithubAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth"
 import firebaseAuthentication from '../Firebase/firebase.init';
-import { useHistory } from 'react-router';
+// import { useHistory } from 'react-router';
 
 
 firebaseAuthentication();
@@ -20,11 +20,7 @@ const useFirebase = () => {
         const googleProvider = new GoogleAuthProvider();
 
         return signInWithPopup(auth, googleProvider)
-        .then(result => {
-            setUser(result.user);
-            // history.push(redirect_uri);
-            console.log(result.user);
-        })
+        
             
     };
 
