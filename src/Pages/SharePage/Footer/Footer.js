@@ -12,7 +12,7 @@ const Footer = () => {
                 <Row className="felx">
                     <Col md={4} >
                         <div className="logo">
-                            <img src={logo} alt="" />
+                            <img className="w-75" src={logo} alt="" />
                         </div>
                         <h2>The simple, <br />
                             free, and secure <br />

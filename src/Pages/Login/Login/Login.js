@@ -5,36 +5,30 @@ import useAuth from '../../../hooks/useAuth';
 import './Login.css';
 
 const Login = () => {
-    const {googleSingin, githubSignin, emailPasswordCreate, emailPasswordSignin, user, updateProfileName} = useAuth();
+    const {googleSingin, githubSignin, emailPasswordCreate, emailPasswordSignin, error, user, setUser } = useAuth();
 
+
+
+    // const [user, setUser] = useState({})
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
+    // const [error, setError] = useState('');
     const [toggle, setToggle] = useState(true);
 
-    const location = useLocation();
-    const history = useHistory();
-
-    const redirect_uri = location.state?.from || "/home";
-
-    
+    // const location = useLocation();
+    // const history = useHistory();
+    // const redirect_uri = location.state?.from || "/home";
 
     const handleGoogleSignin = () =>{
         googleSingin()
-        .then(result => {
-            // setUser(result.user);
-            history.push(redirect_uri);
-        })
+        
         
     };
 
     const handleGithubSignin = () =>{
         githubSignin()
-        .then(result => {
-            // setUser(result.user)
-            history.push(redirect_uri);
-        })
+        
         
     };
 
@@ -59,31 +53,13 @@ const Login = () => {
         emailPasswordCreate(email, password, name)
         // updateProfileName(name);
         // console.log(email,password,name);
-        .then(result => {
-            console.log(result.user);
-            setError('');
-            updateProfileName(name)
-            // setUser(result.user)
-            history.push(redirect_uri);
-        })
-        .catch(error =>{
-            setError(error.message)
-        })
+        
     };
 
     const loginUser = (e) =>{
         e.preventDefault();
         emailPasswordSignin(email,password)
-        .then(result => {
-            // setUser(result.user);
-            // console.log(result.user);
-            history.push(redirect_uri);
-            // setError('')
-
-        })
-        .catch((error) => {
-            // setError(error.message);
-        });
+        
         console.log('signin');
     }
 
@@ -111,8 +87,8 @@ const Login = () => {
                                     <br />
 
                                     <div className="text-danger"> {error}</div>
-                                <div className="google btn signup-btn mx-2" onClick={handleGoogleSignin}><i className="fab fa-google"> Signin with Google</i></div>
-                                <div className="google btn signup-btn mx-2" onClick={handleGithubSignin}><i className="fab fa-github"> Signin with Github</i></div>
+                                <div className="google btn signup-btn mx-2 mt-2" onClick={handleGoogleSignin}><i className="fab fa-google"> Signin with Google</i></div>
+                                <div className="google btn signup-btn mx-2 mt-2" onClick={handleGithubSignin}><i className="fab fa-github"> Signin with Github</i></div>
                                 <br />
                                
                                 <button type="submit" className="btn signup-btn mt-2 ms-2 ">Login</button>
@@ -131,8 +107,8 @@ const Login = () => {
                                     
                                     <label className="my-4" onClick={()=>logToggle(true)} htmlFor="checkbox">All Ready Have an Account</label>
                                     <br />
-                                <div className="google btn signup-btn mx-2" onClick={handleGoogleSignin}><i className="fab fa-google"> Signin with Google</i></div>
-                                <div className="google btn signup-btn mx-2" onClick={handleGithubSignin}><i className="fab fa-github"> Signin with Github</i></div>
+                                <div className="google btn signup-btn mx-2 mt-2" onClick={handleGoogleSignin}><i className="fab fa-google"> Signin with Google</i></div>
+                                <div className="google btn signup-btn mx-2 mt-2" onClick={handleGithubSignin}><i className="fab fa-github"> Signin with Github</i></div>
                                 <br />
                                 <button type="submit" className="btn signup-btn mt-2 ms-2 ">Register</button>
                             </form>}

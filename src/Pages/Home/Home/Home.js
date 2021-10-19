@@ -8,6 +8,7 @@ import bannar3 from '../../../images/banner/bannar3.jpg'
 import Services from '../Services/Services';
 import Doctors from '../Doctors/Doctors';
 import Customar from '../Customar/Customar';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
     return (
@@ -19,7 +20,7 @@ const Home = () => {
                         <div className="my-5 title">
                             <h1>The simple, <br /> free, and secure <br /> telemedicine solution </h1>
                             <p>We’ve made telemedicine simple and easy for you. Create your personal room and start practicing telemedicine today.</p>
-                            <button className="btn signup-btn">Singup</button>
+                            <Link to="/login"><button className="btn signup-btn">Singup</button></Link>
                         </div>
                     </Col>
                     <Col md={6} sm={12}>
@@ -50,9 +51,11 @@ const Home = () => {
 
                 </Row>
             </Container>
+            <div className="my-5">
 
-            <Services></Services>
+                <Services></Services>
 
+            </div>
             <Doctors></Doctors>
 
             <Customar></Customar>

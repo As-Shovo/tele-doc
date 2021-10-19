@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import './Header.css';
 
 import logo from '../../../images/banner/logo.png';
@@ -15,7 +16,7 @@ const Header = () => {
         <div>
             <Navbar expand="lg" className="navbar">
                 <Container>
-                    <Navbar.Brand href="#"><img src={logo} alt="" /></Navbar.Brand>
+                    <Navbar.Brand href="#"><img className="w-100" src={logo} alt="" /></Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                         <Nav
@@ -24,16 +25,16 @@ const Header = () => {
                             navbarScroll
                         >
                             <Nav.Link as= {Link} to ="/home">Home</Nav.Link>
-                            <Nav.Link as= {Link} to ="/home#services">Services</Nav.Link>
+                            <Nav.Link as= {HashLink} to ="/home#services">Services</Nav.Link>
                             <Nav.Link as= {Link} to ="/activeDoctors">Active Doctors</Nav.Link>
                             <Nav.Link as= {Link} to ="/about">About</Nav.Link>
                             <Nav.Link as= {Link} to ="/contact">Contact us</Nav.Link>
 
                             {
-                                user.email?<Nav.Link onClick={handleLogout} >Logout</Nav.Link>:<Nav.Link as= {Link} to ="/login">Login</Nav.Link>
+                                user?.displayName?<Nav.Link onClick={handleLogout} >Logout</Nav.Link>:<Nav.Link as= {Link} to ="/login">Login</Nav.Link>
                             }
 
-                            <span>{user?.displayName}</span>
+                            <span className="name">{user?.displayName}</span>
                         </Nav>
 
                     </Navbar.Collapse>

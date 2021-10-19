@@ -1,0 +1,26 @@
+
+
+.heading{
+    background-color: whitesmoke;
+    padding: 20px 0;
+    margin: 10px 0 20px 0;
+}
+.founder{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.fder{
+    font-size: 3.5rem;
+}
+.story{
+    font-size: 2.4rem;
+    text-align: center;
+}
+
+.founder-image img{
+    max-width: 180px;
+    border-radius: 10px;
+    margin: 5px;
+}

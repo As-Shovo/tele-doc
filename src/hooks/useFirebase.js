@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, GithubAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth"
 import firebaseAuthentication from '../Firebase/firebase.init';
+import { useHistory } from 'react-router';
 
 
 firebaseAuthentication();
@@ -9,6 +10,7 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
 
     const [error, setError] = useState('');
+    const history = useHistory();
 
     const auth = getAuth();
 
@@ -17,14 +19,23 @@ const useFirebase = () => {
 
         const googleProvider = new GoogleAuthProvider();
 
-        return signInWithPopup(auth, googleProvider)
+        signInWithPopup(auth, googleProvider)
+        .then(result => {
+            setUser(result.user);
+            // history.push(redirect_uri);
+            console.log(result.user);
+        })
             
     };
 
-    const githubSignin = () => {
+    const githubSignin = (url) => {
         const githubProvider = new GithubAuthProvider();
 
-        return signInWithPopup(auth, githubProvider)
+        signInWithPopup(auth, githubProvider)
+        .then(result => {
+            setUser(result.user)
+            history.push(url);
+        })
         
         
             
@@ -37,7 +48,17 @@ const useFirebase = () => {
         }
 
 
-        return createUserWithEmailAndPassword(auth, email, password)
+        createUserWithEmailAndPassword(auth, email, password)
+        .then(result => {
+            console.log(result.user);
+            setError('');
+            updateProfileName(name)
+            setUser(result.user);
+            // history.push(redirect_uri);
+        })
+        .catch(error =>{
+            setError(error.message)
+        })
             
         
 
@@ -61,7 +82,18 @@ const useFirebase = () => {
 
     const emailPasswordSignin = (email, password) => {
         // console.log("hellow",email, password);
-        return signInWithEmailAndPassword(auth, email, password)
+         signInWithEmailAndPassword(auth, email, password)
+
+         .then(result => {
+            setUser(result.user);
+            // console.log(result.user);
+            // history.push(redirect_uri);
+            setError('')
+
+        })
+        .catch((error) => {
+            setError(error.message);
+        });
            
     };
 
