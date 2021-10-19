@@ -4,6 +4,8 @@ import { useHistory, useLocation } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
 import './Login.css';
 
+import login from '../../../images/undraw_My_notifications_re_ehmk.png';
+
 const Login = () => {
     const {googleSingin, githubSignin, emailPasswordCreate, emailPasswordSignin, error, user} = useAuth();
 
@@ -76,7 +78,9 @@ const Login = () => {
         <div>
             <Container>
                 <Row>
-                    <Col md={6} sm={12}></Col>
+                    <Col md={6} sm={12}>
+                        <img className="w-100" src={login} alt="" />
+                    </Col>
                     <Col md={5} sm={12}>
                         <div className="input-form">
                             {toggle?<form onSubmit={loginUser}>
