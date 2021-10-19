@@ -1,0 +1,13 @@
+.active-doc p{
+    color: #5607b6;
+    font-size: 1.1rem;
+    border: 1px solid #5607b7;
+    border-radius: 25px;
+    width: 130px;
+    padding: 5px;
+}
+
+.active-doc li{
+    margin: 20px 0;
+    font-size: 1.3rem;
+}

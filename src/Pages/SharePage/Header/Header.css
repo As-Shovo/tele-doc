@@ -1,0 +1,9 @@
+.navbar{
+    background-color: whitesmoke;
+    position: sticky;
+}
+
+.nav-list a{
+    color: #5607b6 !important;
+    font-size: 1.1rem;
+}
