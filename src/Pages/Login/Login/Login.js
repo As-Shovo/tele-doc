@@ -5,7 +5,7 @@ import useAuth from '../../../hooks/useAuth';
 import './Login.css';
 
 const Login = () => {
-    const {googleSingin, githubSignin, emailPasswordCreate, emailPasswordSignin, error, user, setUser } = useAuth();
+    const {googleSingin, githubSignin, emailPasswordCreate, emailPasswordSignin, error, user} = useAuth();
 
 
 
@@ -16,12 +16,17 @@ const Login = () => {
     // const [error, setError] = useState('');
     const [toggle, setToggle] = useState(true);
 
-    // const location = useLocation();
-    // const history = useHistory();
-    // const redirect_uri = location.state?.from || "/home";
+    const location = useLocation();
+    const history = useHistory();
+    const redirect_uri = location.state?.from || "/home";
 
     const handleGoogleSignin = () =>{
         googleSingin()
+        .then(result => {
+            // setUser(result.user);
+            history.push(redirect_uri);
+            // console.log(result.user);
+        })
         
         
     };

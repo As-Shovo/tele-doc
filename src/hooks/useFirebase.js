@@ -10,7 +10,7 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
 
     const [error, setError] = useState('');
-    const history = useHistory();
+    // const history = useHistory();
 
     const auth = getAuth();
 
@@ -19,7 +19,7 @@ const useFirebase = () => {
 
         const googleProvider = new GoogleAuthProvider();
 
-        signInWithPopup(auth, googleProvider)
+        return signInWithPopup(auth, googleProvider)
         .then(result => {
             setUser(result.user);
             // history.push(redirect_uri);
@@ -28,15 +28,15 @@ const useFirebase = () => {
             
     };
 
-    const githubSignin = (url) => {
+    const githubSignin = () => {
         const githubProvider = new GithubAuthProvider();
 
         signInWithPopup(auth, githubProvider)
+        
         .then(result => {
             setUser(result.user)
-            history.push(url);
+            // history.push(redirect_uri);
         })
-        
         
             
     };
