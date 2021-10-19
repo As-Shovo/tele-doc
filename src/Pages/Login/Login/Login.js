@@ -1,25 +1,41 @@
 import React, { useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
 import './Login.css';
 
 const Login = () => {
-    const {googleSingin, githubSignin, emailPasswordCreate, emailPasswordSignin, user, error} = useAuth();
+    const {googleSingin, githubSignin, emailPasswordCreate, emailPasswordSignin, user, updateProfileName} = useAuth();
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
     const [toggle, setToggle] = useState(true);
 
-    let history = useHistory();
+    const location = useLocation();
+    const history = useHistory();
+
+    const redirect_uri = location.state?.from || "/home";
+
+    
 
     const handleGoogleSignin = () =>{
         googleSingin()
-        history.push("/service/:id");
+        .then(result => {
+            // setUser(result.user);
+            history.push(redirect_uri);
+        })
+        
     };
+
     const handleGithubSignin = () =>{
         githubSignin()
+        .then(result => {
+            // setUser(result.user)
+            history.push(redirect_uri);
+        })
+        
     };
 
     const handleName = e => {
@@ -40,14 +56,34 @@ const Login = () => {
     
     const createNewUser = (e) =>{
         e.preventDefault();
-        emailPasswordCreate(email, password, name);
+        emailPasswordCreate(email, password, name)
         // updateProfileName(name);
-        console.log(email,password,name);
+        // console.log(email,password,name);
+        .then(result => {
+            console.log(result.user);
+            setError('');
+            updateProfileName(name)
+            // setUser(result.user)
+            history.push(redirect_uri);
+        })
+        .catch(error =>{
+            setError(error.message)
+        })
     };
 
     const loginUser = (e) =>{
         e.preventDefault();
         emailPasswordSignin(email,password)
+        .then(result => {
+            // setUser(result.user);
+            // console.log(result.user);
+            history.push(redirect_uri);
+            // setError('')
+
+        })
+        .catch((error) => {
+            // setError(error.message);
+        });
         console.log('signin');
     }
 

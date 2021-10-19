@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, GithubAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth"
 import firebaseAuthentication from '../Firebase/firebase.init';
 
+
 firebaseAuthentication();
 const useFirebase = () => {
 
@@ -11,23 +12,22 @@ const useFirebase = () => {
 
     const auth = getAuth();
 
+
     const googleSingin = () => {
 
         const googleProvider = new GoogleAuthProvider();
 
-        signInWithPopup(auth, googleProvider)
-            .then(result => {
-                setUser(result.user);
-            })
+        return signInWithPopup(auth, googleProvider)
+            
     };
 
     const githubSignin = () => {
         const githubProvider = new GithubAuthProvider();
 
-        signInWithPopup(auth, githubProvider)
-            .then(result => {
-                setUser(result.user);
-            })
+        return signInWithPopup(auth, githubProvider)
+        
+        
+            
     };
 
     const emailPasswordCreate = (email, password, name) => {
@@ -37,20 +37,12 @@ const useFirebase = () => {
         }
 
 
-        createUserWithEmailAndPassword(auth, email, password)
-            .then(result => {
-                console.log(result.user);
-                setError('');
-                updateProfileName(name)
-                setUser(result.user)
-            })
-            .catch(error =>{
-                setError(error.message)
-            })
+        return createUserWithEmailAndPassword(auth, email, password)
+            
         
 
         
-        console.log(email,password);
+        // console.log(email,password);
 
     };
 
@@ -68,17 +60,9 @@ const useFirebase = () => {
 
 
     const emailPasswordSignin = (email, password) => {
-        console.log("hellow",email, password);
-        signInWithEmailAndPassword(auth, email, password)
-            .then(result => {
-                setUser(result.user);
-                console.log(result.user);
-                setError('')
-
-            })
-            .catch((error) => {
-                setError(error.message);
-            });
+        // console.log("hellow",email, password);
+        return signInWithEmailAndPassword(auth, email, password)
+           
     };
 
     // observeer
@@ -105,6 +89,7 @@ const useFirebase = () => {
 
     return {
         user,
+        setUser,
         error,
         googleSingin,
         githubSignin,
