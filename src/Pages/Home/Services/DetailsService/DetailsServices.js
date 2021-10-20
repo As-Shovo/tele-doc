@@ -33,8 +33,8 @@ const DetailsServices = () => {
                                 </Card.Text>
                             </Card.Body>
                             <Card.Footer>
-                                <Link to="/activeDoctors"><button className="btn signup-btn mx-3">Our Active Doctor</button></Link>
-                                <Link to="/home"><button className="btn signup-btn">Go Back</button></Link>
+                                <Link to="/activeDoctors"><button className="btn signup-btn mx-2 mb-1">Our Active Doctor</button></Link>
+                                <Link to="/home"><button className="btn signup-btn ">Go Back</button></Link>
                             </Card.Footer>
                         </Card>
                     </Col>

@@ -14,7 +14,7 @@ const About = () => {
             </div>
             <Container>
                 <p className="text-center fder">Founder</p>
-                <Row className="my-5">
+                <Row className="my-5 gx-1">
                     <Col md={6} sm={12} className="text-center">
 
                         <div className="founder">

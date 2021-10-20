@@ -9,7 +9,7 @@ const Footer = () => {
     return (
         <div className="footer-section">
             <Container className="footer-area py-5">
-                <Row className="felx">
+                <Row className="gx-0">
                     <Col md={4} sm={12} >
                         <div className="logo">
                             <img className="w-75" src={logo} alt="" />
@@ -44,6 +44,7 @@ const Footer = () => {
                             </InputGroup>
                         </div>
                     </Col>
+                    <Col></Col>
                 </Row>
             </Container>
         </div>
