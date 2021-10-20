@@ -28,13 +28,9 @@ const useFirebase = () => {
     const githubSignin = () => {
         const githubProvider = new GithubAuthProvider();
 
-        signInWithPopup(auth, githubProvider)
+        return signInWithPopup(auth, githubProvider)
         
-        .then(result => {
-            setUser(result.user)
-            // history.push(redirect_uri);
-            // history.push("/home#services");
-        });
+        
         
         
             

@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="footer-section">
             <Container className="footer-area py-5">
                 <Row className="felx">
-                    <Col md={4} >
+                    <Col md={4} sm={12} >
                         <div className="logo">
                             <img className="w-75" src={logo} alt="" />
                         </div>
@@ -20,7 +20,7 @@ const Footer = () => {
                         </h2>
                         <p className="">Telemedicine, also referred to as telehealth or e-medicine, is the remote delivery of healthcare services, including exams and consultations, over the telecommunications infrastructure.</p>
                     </Col>
-                    <Col md={4}>
+                    <Col md={4} sm={12}>
                         <h1>Contact Us</h1>
                         <div className="footer-menu">
                             <Link to="#"><i className="fas fa-phone-square-alt icons"></i>  +096122327</Link>
@@ -29,7 +29,7 @@ const Footer = () => {
                             <Link to="#"><i className="fab fa-instagram-square icons"></i>  Instagrame </Link>
                         </div>
                     </Col>
-                    <Col md={4}>
+                    <Col md={4} sm={12}>
                         <div className="py-5">
 
                             <h1>SUBCRIBE</h1>

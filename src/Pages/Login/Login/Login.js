@@ -35,6 +35,11 @@ const Login = () => {
 
     const handleGithubSignin = () =>{
         githubSignin()
+        .then(result => {
+            // setUser(result.user)
+            history.push(redirect_uri);
+            // history.push("/home#services");
+        });
         
     };
 
