@@ -36,7 +36,6 @@ const Login = () => {
     const handleGithubSignin = () =>{
         githubSignin()
         
-        
     };
 
     const handleName = e => {

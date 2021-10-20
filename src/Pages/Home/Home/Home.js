@@ -51,7 +51,7 @@ const Home = () => {
 
                 </Row>
             </Container>
-            <div className="my-5">
+            <div className="my-5"  id="services">
 
                 <Services></Services>
 

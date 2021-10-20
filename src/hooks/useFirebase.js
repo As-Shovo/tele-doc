@@ -10,7 +10,8 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
 
     const [error, setError] = useState('');
-    // const history = useHistory();
+
+    // const history = useHistory(); 
 
     const auth = getAuth();
 
@@ -32,7 +33,9 @@ const useFirebase = () => {
         .then(result => {
             setUser(result.user)
             // history.push(redirect_uri);
-        })
+            // history.push("/home#services");
+        });
+        
         
             
     };
